@@ -1,0 +1,288 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  color: #0f1111;
+  padding: 20px 14px 0 14px;
+}
+
+.auth-wrapper {
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Brand Text Logo Styling */
+.logo-box {
+  margin-bottom: 18px;
+}
+
+.brand-logo {
+  font-size: 30px;
+  font-weight: 800;
+  color: #111111;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+  display: inline-block;
+  position: relative;
+}
+
+.brand-logo span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ff9900;
+  margin-left: 1px;
+}
+
+/* Auth Card */
+.auth-card {
+  width: 100%;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  padding: 20px 26px;
+  background: #ffffff;
+}
+
+.auth-card h1 {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.label-row label {
+  margin-bottom: 0;
+}
+
+.form-group input {
+  width: 100%;
+  height: 31px;
+  padding: 3px 7px;
+  font-size: 13px;
+  border: 1px solid #888c8c;
+  border-radius: 3px;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: #e77600;
+  box-shadow: 0 0 3px 2px rgba(228, 121, 17, 0.5);
+}
+
+.form-group input.input-error {
+  border-color: #c40000;
+  box-shadow: 0 0 3px 2px rgba(196, 0, 0, 0.3);
+}
+
+.error-msg {
+  display: none;
+  font-size: 12px;
+  color: #c40000;
+  margin-top: 5px;
+}
+
+.error-msg.visible {
+  display: block;
+}
+
+/* Primary Button */
+.primary-btn {
+  width: 100%;
+  background: #ffd814;
+  border: 1px solid #fcd200;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+  margin-top: 4px;
+  margin-bottom: 18px;
+}
+
+.primary-btn:hover {
+  background: #f7ca00;
+  border-color: #f2c200;
+}
+
+/* Secondary Button */
+.secondary-btn {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+}
+
+.secondary-btn:hover {
+  background: #f7fafa;
+}
+
+/* Links */
+.link {
+  color: #007185;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.link:hover {
+  color: #c45500;
+  text-decoration: underline;
+}
+
+.terms-text {
+  font-size: 12px;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.terms-text a {
+  color: #007185;
+  text-decoration: none;
+}
+
+.terms-text a:hover {
+  text-decoration: underline;
+  color: #c45500;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background-color: #e7e7e7;
+  margin: 20px 0 16px 0;
+}
+
+.business-title {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+/* New User Section */
+.new-account-box {
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.divider-text {
+  position: relative;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.divider-text::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #e7e7e7;
+  z-index: 1;
+}
+
+.divider-text h5 {
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  background: #ffffff;
+  padding: 0 8px;
+  font-size: 12px;
+  color: #767676;
+  font-weight: 400;
+}
+
+/* Account Details Row */
+.user-display {
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+#display-identifier {
+  font-weight: 600;
+}
+
+#change-identifier-btn {
+  margin-left: 6px;
+}
+
+.forgot-link {
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Footer */
+.auth-footer {
+  width: 100%;
+  margin-top: 40px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.footer-divider {
+  height: 1px;
+  background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.1), rgba(0,0,0,0));
+  margin-bottom: 22px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  font-size: 11px;
+  color: #0066c0;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+  color: #c45500;
+}
+
+.copyright {
+  font-size: 11px;
+  color: #555555;
+  }
+  
