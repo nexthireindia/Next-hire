@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartLoan - Compare & Apply Instant Loans</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    body { background-color: #f1f5f9; color: #1e293b; }
+
+    /* Header */
+    header { background: #0f172a; color: white; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 50; }
+    .logo { font-size: 20px; font-weight: 800; letter-spacing: -0.5px; }
+    .logo span { color: #38bdf8; }
+
+    /* Hero Section */
+    .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: white; padding: 36px 20px; text-align: center; }
+    .hero h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+    .hero p { font-size: 13px; color: #94a3b8; margin-bottom: 20px; }
+    
+    .apk-btn { background: #22c55e; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.35); transition: 0.2s ease; }
+    .apk-btn:active { transform: scale(0.97); }
+
+    /* Layout Container */
+    .container { max-width: 600px; margin: 0 auto; padding: 20px 16px; display: flex; flex-direction: column; gap: 18px; }
+
+    /* Quick Calculator Card */
+    .calc-card { background: white; border-radius: 14px; padding: 18px; border: 1px solid #e2e8f0; box-shadow: 0 2px 4px rgba(0,0,0,0.03); }
+    .calc-card h4 { font-size: 14px; margin-bottom: 12px; color: #334155; }
+    .slider-group { margin-bottom: 12px; }
+    .slider-label { display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; margin-bottom: 4px; color: #64748b; }
+    input[type=range] { width: 100%; accent-color: #2563eb; }
+    .emi-box { background: #eff6ff; border-radius: 8px; padding: 10px; display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+    .emi-box span { font-size: 12px; color: #1e40af; font-weight: 600; }
+    .emi-val { font-size: 16px; font-weight: 800; color: #1d4ed8; }
+
+    /* Section Title */
+    .section-title { font-size: 15px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* Loan Cards */
+    .card { background: white; border-radius: 14px; padding: 18px; border: 1px solid #e2e8f0; box-shadow: 0 2px 6px rgba(0,0,0,0.04); display: flex; flex-direction: column; gap: 14px; }
+    .card-top { display: flex; justify-content: space-between; align-items: center; }
+    .brand-title { font-size: 17px; font-weight: 700; color: #0f172a; }
+    .tag { background: #dcfce7; color: #15803d; font-size: 11px; padding: 4px 8px; border-radius: 6px; font-weight: 700; }
+
+    .card-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; background: #f8fafc; padding: 12px; border-radius: 10px; }
+    .metric-col span { font-size: 11px; color: #64748b; display: block; margin-bottom: 2px; }
+    .metric-col strong { font-size: 13px; color: #0f172a; }
+
+    /* Apply Action */
+    .apply-btn { background: #2563eb; color: white; text-align: center; padding: 11px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; transition: 0.2s ease; }
+    .apply-btn:hover { background: #1d4ed8; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Smart<span>Loan</span></div>
+    <span style="font-size: 11px; background: #334155; padding: 4px 8px; border-radius: 4px;">Verified Aggregator</span>
+  </header>
+
+  <div class="hero">
+    <h1>Instant Loans, Zero Hassle</h1>
+    <p>Compare top RBI-registered lenders & pick the lowest rates</p>
+    <a href="downloads/smartloan.apk" download class="apk-btn">
+      ⬇️ Download SmartLoan App (.apk)
+    </a>
+  </div>
+
+  <div class="container">
+
+    <!-- Simple EMI Preview -->
+    <div class="calc-card">
+      <h4>⚡ Quick EMI Estimator</h4>
+      <div class="slider-group">
+        <div class="slider-label"><span>Amount</span><span id="amt-text">₹50,000</span></div>
+        <input type="range" id="amount" min="10000" max="500000" step="5000" value="50000" oninput="updateEmi()">
+      </div>
+      <div class="slider-group">
+        <div class="slider-label"><span>Tenure</span><span id="month-text">12 Months</span></div>
+        <input type="range" id="months" min="3" max="36" step="1" value="12" oninput="updateEmi()">
+      </div>
+      <div class="emi-box">
+        <span>Estimated Monthly EMI:</span>
+        <span class="emi-val" id="emi-val">₹4,442</span>
+      </div>
+    </div>
+
+    <div class="section-title">Top Instant Loan Offers</div>
+
+    <!-- Offer 1 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="brand-title">Navi Instant Loan</span>
+        <span class="tag">Instant Disbursal</span>
+      </div>
+      <div class="card-metrics">
+        <div class="metric-col"><span>Limit</span><strong>Up to ₹20L</strong></div>
+        <div class="metric-col"><span>Rate</span><strong>From 9.9%</strong></div>
+        <div class="metric-col"><span>Tenure</span><strong>3 - 60 Mo</strong></div>
+      </div>
+      <a href="https://your-affiliate-link-here.com" target="_blank" class="apply-btn">Apply on Partner Site →</a>
+    </div>
+
+    <!-- Offer 2 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="brand-title">MoneyView Personal</span>
+        <span class="tag">Low Credit Score OK</span>
+      </div>
+      <div class="card-metrics">
+        <div class="metric-col"><span>Limit</span><strong>Up to ₹10L</strong></div>
+        <div class="metric-col"><span>Rate</span><strong>From 1.33%/m</strong></div>
+        <div class="metric-col"><span>Tenure</span><strong>3 - 60 Mo</strong></div>
+      </div>
+      <a href="https://your-affiliate-link-here.com" target="_blank" class="apply-btn">Apply on Partner Site →</a>
+    </div>
+
+    <!-- Offer 3 -->
+    <div class="card">
+      <div class="card-top">
+        <span class="brand-title">mPokket</span>
+        <span class="tag">Student / Salary</span>
+      </div>
+      <div class="card-metrics">
+        <div class="metric-col"><span>Limit</span><strong>Up to ₹45k</strong></div>
+        <div class="metric-col"><span>Rate</span><strong>Standard</strong></div>
+        <div class="metric-col"><span>Process</span><strong>Paperless</strong></div>
+      </div>
+      <a href="https://your-affiliate-link-here.com" target="_blank" class="apply-btn">Apply on Partner Site →</a>
+    </div>
+
+  </div>
+
+  <script>
+    function updateEmi() {
+      const p = parseFloat(document.getElementById('amount').value);
+      const n = parseInt(document.getElementById('months').value);
+      const r = 12 / (12 * 100); // 12% standard default interest
+
+      document.getElementById('amt-text').innerText = '₹' + p.toLocaleString('en-IN');
+      document.getElementById('month-text').innerText = n + ' Months';
+
+      const emi = Math.round((p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1));
+      document.getElementById('emi-val').innerText = '₹' + emi.toLocaleString('en-IN');
+    }
+  </script>
+</body>
+  </html>
+  
