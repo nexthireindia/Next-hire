@@ -1,1 +1,1 @@
-Amazon signin clone 
+Smart Loan
